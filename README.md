@@ -61,8 +61,6 @@ Sample Test: a=1, b=-3, c=2 gives root 2.0 and 1.0
 Output: 
 <img width="1857" height="322" alt="python 1" src="https://github.com/user-attachments/assets/4f7728eb-6299-4a66-a4bc-a8b2becc05c0" />
 
-Note:The discriminant d = b² - 4ac decides the type of roots: d > 0 gives two distinct real roots, d = 0 gives equal roots, and d < 0 gives complex roots. The check `a == 0` avoids division by zero, since the equation is not quadratic then.
-
 
 ---
 ##**Practical 02 - Prime Numbers**
@@ -132,8 +130,6 @@ First 8 prime numbers:
 
 Output:
 <img width="1847" height="317" alt="python 2" src="https://github.com/user-attachments/assets/c260c624-74ff-4001-8aa3-d2e57eb59433" />
-
-Note: A number is prime only if it is greater than 1 and has no divisor other than 1 and itself. The loop checks divisors only up to the square root of the number, because any factor larger than that would pair with a smaller one. The same `is_prime()` function is used in all three parts.
 
 
 ---
