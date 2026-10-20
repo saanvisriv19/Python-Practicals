@@ -590,6 +590,15 @@ print("After deleting e2, total employees:", Employee.count)
 Output:
 <img width="1811" height="626" alt="image" src="https://github.com/user-attachments/assets/75b5374f-14b8-49ff-86ed-d99fd911ebe3" />
 
+Testing the negative value check:
+
+Adding this at the end of the above input,
+
+e3 = Employee(103, "Ravi", "IT", -5000, 10000, 5000)
+
+Output:
+<img width="1582" height="481" alt="image" src="https://github.com/user-attachments/assets/020eb987-5031-4354-8721-12a20af3eb34" />
+
 
 ---
 ##**Practical 13 - Class Point2D**
@@ -600,6 +609,167 @@ distance between any two point objects.
 
 Input:
 ```python
+import math
+
+
+class Point2D:
+    def __init__(self, x=0, y=0):
+        self.x = x
+        self.y = y
+
+    def __str__(self):
+        return "(" + str(self.x) + ", " + str(self.y) + ")"
+
+    def distance(self, other):
+        dx = self.x - other.x
+        dy = self.y - other.y
+        return math.sqrt(dx ** 2 + dy ** 2)
+
+
+p1 = Point2D(1, 2)
+p2 = Point2D(4, 6)
+p3 = Point2D()
+
+print("Point 1:", p1)
+print("Point 2:", p2)
+print("Point 3 (default):", p3)
+print("Distance between p1 and p2:", p1.distance(p2))
+print("Distance between p1 and p3:", p1.distance(p3))
+```
+
+Output:
+<img width="1836" height="327" alt="image" src="https://github.com/user-attachments/assets/83c5285c-bdef-4bc5-84a1-8ae3d5e7fec6" />
+
+
+---
+##**Practical 14 - Inheritance: Class Point3D**
+
+Question: Inherit the above class to create a "3Dpoint" with additional attribute z. Override the method 
+defined in "2DPoint" class , to calculate distance between two points of the "3DPoint" class.
+
+Input: 
+```python
+import math
+
+
+class Point2D:
+    def __init__(self, x=0, y=0):
+        self.x = x
+        self.y = y
+
+    def __str__(self):
+        return "(" + str(self.x) + ", " + str(self.y) + ")"
+
+    def distance(self, other):
+        dx = self.x - other.x
+        dy = self.y - other.y
+        return math.sqrt(dx ** 2 + dy ** 2)
+
+
+class Point3D(Point2D):
+    def __init__(self, x=0, y=0, z=0):
+        super().__init__(x, y)
+        self.z = z
+
+    def __str__(self):
+        return "(" + str(self.x) + ", " + str(self.y) + ", " + str(self.z) + ")"
+
+    def distance(self, other):
+        dx = self.x - other.x
+        dy = self.y - other.y
+        dz = self.z - other.z
+        return math.sqrt(dx ** 2 + dy ** 2 + dz ** 2)
+
+
+# 2D points (parent class)
+a = Point2D(1, 2)
+b = Point2D(4, 6)
+print("2D point a:", a)
+print("2D point b:", b)
+print("2D distance:", a.distance(b))
+
+print()
+
+# 3D points (child class)
+p1 = Point3D(1, 2, 3)
+p2 = Point3D(4, 6, 15)
+p3 = Point3D()
+print("3D point p1:", p1)
+print("3D point p2:", p2)
+print("3D point p3 (default):", p3)
+print("3D distance between p1 and p2:", p1.distance(p2))
+print("3D distance between p1 and p3:", p1.distance(p3))
+```
+
+Output:
+<img width="1841" height="312" alt="image" src="https://github.com/user-attachments/assets/9fa557fe-d85c-4aca-977b-95b41ae2eac8" />
+
+
+---
+##**Practical 15 - Exception Handling for a Name**
+
+Question: . Write a program to accept a name from a user. Raise and handle appropriate exception(s) if 
+the text entered by the user contains digits and/or special characters.
+
+Input: 
+```python
+def check_name(name):
+    if name.strip() == "":
+        raise ValueError("Name cannot be empty")
+
+    has_digit = False
+    has_special = False
+
+    for ch in name:
+        if ch.isdigit():
+            has_digit = True
+        elif not ch.isalpha() and ch != " ":
+            has_special = True
+
+    if has_digit and has_special:
+        raise ValueError("Name contains digits and special characters")
+    elif has_digit:
+        raise ValueError("Name contains digits")
+    elif has_special:
+        raise ValueError("Name contains special characters")
+
+
+try:
+    name = input("Enter your name: ")
+    check_name(name)
+    print("Valid name. Hello,", name)
+except ValueError as e:
+    print("Invalid name:", e)
+```
+
+Sample Test:
+Enter your name: Saanvi Srivastava
+
+Valid name. Hello, Saanvi Srivastava
+
+Enter your name: Saanvi123
+
+Invalid name: Name contains digits
+
+Enter your name: Saanvi@#
+
+Invalid name: Name contains special characters
+
+Enter your name: Saanvi12@#
+
+Invalid name: Name contains digits and special characters
+
+Enter your name:
+
+Invalid name: Name cannot be empty
+
+Output:
+<img width="1832" height="530" alt="image" src="https://github.com/user-attachments/assets/10c38f6c-7b53-4b18-90ef-5c283792ca1d" />
+
+---
+
+
+
 
 
 
