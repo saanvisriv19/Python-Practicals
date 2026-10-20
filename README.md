@@ -739,9 +739,9 @@ except ValueError as e:
 ```
 
 Sample Test:
-Enter your name: Saanvi Srivastava
+Enter your name: Saanvi 
 
-Valid name. Hello, Saanvi Srivastava
+Valid name. Hello, Saanvi 
 
 Enter your name: Saanvi123
 
